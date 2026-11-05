@@ -33,7 +33,6 @@ def clean_shipments(raw, medians=None):
     clean[impute_columns] = clean[impute_columns].fillna(medians)
     return clean, medians
 
-
 def build_features(clean, hubs):
     """Attach hub attributes and return rows with all pinned model features."""
     result = clean.merge(hubs[["hub_id", *HUB_COLUMNS]], on="hub_id", how="left", validate="many_to_one")
